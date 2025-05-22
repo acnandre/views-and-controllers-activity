@@ -11,6 +11,7 @@ sap.ui.define([
 
     return Controller.extend("com.training.exer1dumandan.controller.MainView", {
         onInit() {
+            //Floating footer
             this._Page = this.byId("page");
 			this._Page.setFloatingFooter(!this._Page.getFloatingFooter());
         },
@@ -38,7 +39,7 @@ sap.ui.define([
                 oMobileLabel.setVisible(false);
                 oMobileInput.setVisible(false);
             }
-
+            //Logic for credit card details
             if(sSelectedKey === "CC"){
                 oCCDetailsLabel.setVisible(true);
                 oCCDetailsInput.setVisible(true);
@@ -53,7 +54,7 @@ sap.ui.define([
             var oInputFNameValue = this.getView().byId("idInptFName").getValue();
             var oInputLNameValue = this.getView().byId("idInptLName").getValue();
 
-            // Check if first name is blank
+            // Check if first name AND last name is blank
             if (oInputFNameValue === "" && oInputLNameValue === ""){
                 var oTextBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
                 var sMsg = oTextBundle.getText("fieldBlankMsg");
